@@ -2,11 +2,11 @@ using Xunit;
 
 namespace ValidatorLibraryTests.PasswordChecker
 {
-    public class PasswordChecker
+    public class PasswordCheckerTests
     {
         private ValidatorLibrary.PasswordChecker.PasswordChecker _passwordChecker;
 
-        public PasswordChecker()
+        public PasswordCheckerTests()
         {
             _passwordChecker = new ValidatorLibrary.PasswordChecker.PasswordChecker(8);
         }

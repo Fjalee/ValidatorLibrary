@@ -2,11 +2,11 @@ using Xunit;
 
 namespace ValidatorLibraryTests.EmailValidator
 {
-    public class EmailValidator
+    public class EmailValidatorTests
     {
         private ValidatorLibrary.EmailValidator.EmailValidator _emailValidator;
 
-        public EmailValidator()
+        public EmailValidatorTests()
         {
             _emailValidator = new ValidatorLibrary.EmailValidator.EmailValidator();
         }
