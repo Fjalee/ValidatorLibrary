@@ -4,11 +4,11 @@ namespace ValidatorLibraryTests.PhoneValidator
 {
     public class PhoneValidatorTests
     {
-        private ValidatorLibrary.PhoneValidator.PhoneValidator _phoneValidator;
+        private PhoneValidator _phoneValidator;
 
         public PhoneValidatorTests()
         {
-            _phoneValidator = new ValidatorLibrary.PhoneValidator.PhoneValidator();
+            _phoneValidator = new PhoneValidator();
         }
 
         [Theory]

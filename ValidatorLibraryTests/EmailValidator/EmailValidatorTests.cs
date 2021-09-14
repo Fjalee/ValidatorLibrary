@@ -4,11 +4,11 @@ namespace ValidatorLibraryTests.EmailValidator
 {
     public class EmailValidatorTests
     {
-        private ValidatorLibrary.EmailValidator.EmailValidator _emailValidator;
+        private EmailValidator _emailValidator;
 
         public EmailValidatorTests()
         {
-            _emailValidator = new ValidatorLibrary.EmailValidator.EmailValidator();
+            _emailValidator = new EmailValidator();
         }
 
         [Theory]

@@ -4,11 +4,10 @@ namespace ValidatorLibraryTests.PasswordChecker
 {
     public class PasswordCheckerTests
     {
-        private ValidatorLibrary.PasswordChecker.PasswordChecker _passwordChecker;
-
+        private PasswordChecker _passwordChecker;
         public PasswordCheckerTests()
         {
-            _passwordChecker = new ValidatorLibrary.PasswordChecker.PasswordChecker(8);
+            _passwordChecker = new PasswordChecker();
         }
 
         [Fact]
