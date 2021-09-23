@@ -36,14 +36,23 @@ namespace ValidatorLibrary
             {
                 return false;
             }
-            if (!IsValidDomain(domain))
+            if (!IsInApprovedDomainList(domain))
             {
                 return false;
             }
-            if (!IsValidTld(tld))
+            if (!IsInApprovedTLDList(tld))
             {
                 return false;
             }
+
+            //if (!IsValidDomain(domain))
+            //{
+            //    return false;
+            //}
+            //if (!IsValidTld(tld))
+            //{
+            //    return false;
+            //}
 
             return true;
         }
@@ -71,6 +80,16 @@ namespace ValidatorLibrary
                 }
             }
             return true;
+        }
+
+        private bool IsInApprovedDomainList(string domain)
+        {
+            return _approvedDomainList.Contains(domain);
+        }
+
+        private bool IsInApprovedTLDList(string tld)
+        {
+            return _approvedTLDList.Contains(tld);
         }
 
         private bool IsValidTld(string tld)
