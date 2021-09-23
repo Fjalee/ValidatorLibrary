@@ -29,15 +29,20 @@ namespace ValidatorLibrary
 
         public string ChangeShortcutPrefixToDefault(string phone)
         {
+            var rules = ChooseRules(phone);
+            if (rules == null)
+            {
+                return null;
+            }
 
             if (!Validate(phone)
-                || phone[0].Equals(_shortPrefix))
+                || phone[0].Equals(rules.ShortPrefix))
             {
                 return null;
             }
 
             var (_, number) = SeperatePrefix(phone);
-            return String.Concat(_longPrefix, number);
+            return String.Concat(rules.LongPrefix, number);
         }
 
         private CountryPhoneRules ChooseRules(string phone)
