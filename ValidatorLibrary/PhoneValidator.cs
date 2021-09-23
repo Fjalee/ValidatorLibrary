@@ -1,18 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ValidatorLibrary
 {
     public class PhoneValidator
     {
-        private readonly int _requiredLenForWithoutPrefix = 8;
-        private readonly int _lenLongPrefix = 4;
-        private readonly int _lenShortPrefix = 1;
-
-        private readonly string _shortPrefix = "8";
-        private readonly string _longPrefix = "+370";
+        private readonly List<CountryPhoneRules> _allCountriesPhoneRules = new List<CountryPhoneRules>()
+        {
+            new CountryPhoneRules("LTU", "+370", "8", 8),
+            new CountryPhoneRules("WTF", "+44", "7", 10)
+        };
 
         public bool Validate(string phone)
         {
+            var rules = ChooseRules(phone);
+            if (rules == null)
+            {
+                return false;
+            }
+
             if (!IsValidLength(phone)
                 || ContainsInvalidSymbols(phone))
             {
@@ -32,6 +38,19 @@ namespace ValidatorLibrary
 
             var (_, number) = SeperatePrefix(phone);
             return String.Concat(_longPrefix, number);
+        }
+
+        private CountryPhoneRules ChooseRules(string phone)
+        {
+            foreach (var country in _allCountriesPhoneRules)
+            {
+                if (0 == phone.IndexOf(country.ShortPrefix)
+                    || 0 == phone.IndexOf(country.LongPrefix))
+                {
+                    return country;
+                }
+            }
+            return null;
         }
 
         private (string, string) SeperatePrefix(string phone)
