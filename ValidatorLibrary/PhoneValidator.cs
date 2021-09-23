@@ -8,7 +8,8 @@
 
         public bool Validate(string phone)
         {
-            if (!IsValidLength(phone))
+            if (!IsValidLength(phone)
+                || !IsNumeric(phone))
             {
                 return false;
             }
@@ -23,6 +24,18 @@
                 return true;
             }
 
+            return true;
+        }
+
+        private bool IsNumeric(string str)
+        {
+            foreach (var ch in str.ToCharArray())
+            {
+                if (!char.IsDigit(ch))
+                {
+                    return false;
+                }
+            }
             return true;
         }
     }
