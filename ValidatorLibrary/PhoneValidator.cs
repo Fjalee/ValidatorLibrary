@@ -19,7 +19,7 @@ namespace ValidatorLibrary
                 return false;
             }
 
-            if (!IsValidLength(phone)
+            if (!IsValidLength(phone, rules)
                 || ContainsInvalidSymbols(phone))
             {
                 return false;
@@ -63,10 +63,10 @@ namespace ValidatorLibrary
             return (phone.Substring(0, 1), phone[1..]);
         }
 
-        private bool IsValidLength(string phone)
+        private bool IsValidLength(string phone, CountryPhoneRules rules)
         {
-            if (_requiredLenForWithoutPrefix + _lenLongPrefix == phone.Length
-                || _requiredLenForWithoutPrefix + _lenShortPrefix == phone.Length)
+            if (rules.LongPrefix.Length + rules.PhoneLengthWithoutPrefix == phone.Length
+                || rules.ShortPrefix.Length + rules.PhoneLengthWithoutPrefix == phone.Length)
             {
                 return true;
             }
