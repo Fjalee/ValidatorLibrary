@@ -52,7 +52,7 @@ namespace ValidatorLibrary
                 return true;
             }
 
-            return true;
+            return false;
         }
 
         private bool ContainsInvalidSymbols(string str)
