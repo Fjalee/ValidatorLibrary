@@ -12,16 +12,15 @@
             {
                 return false;
             }
-
-            return false;
+            return true;
         }
 
         private bool IsValidLength(string phone)
         {
-            if (_requiredLenForWithoutPrefix + _lenLongPrefix != phone.Length
-                || _requiredLenForWithoutPrefix + _lenShortPrefix != phone.Length)
+            if (_requiredLenForWithoutPrefix + _lenLongPrefix == phone.Length
+                || _requiredLenForWithoutPrefix + _lenShortPrefix == phone.Length)
             {
-                return false;
+                return true;
             }
 
             return true;
